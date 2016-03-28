@@ -10,10 +10,17 @@ var express = require('express'),
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	csv.parse(fc, {skip_empty_lines: true, relax: true, escape: true, delimiter: '|'}, function (err, _records) {
+	csv.parse(fc, {
+    skip_empty_lines: true, 
+    relax: true, 
+    escape: true, 
+    delimiter: '|'
+  }, function (err, _records) {
 		let columns = _records[0], //array with a single entry, pipe delimited
 			cars = _records.slice(1); //array of arrays
 
+    console.log(cars);
+    //This actually show the index view, passing to it the columns, cars, and title variables.
 		res.render('index', {columns, cars, title});
 	});
 });

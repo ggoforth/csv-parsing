@@ -18,27 +18,25 @@
 <body>
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
-<table class="table table-condensed table-striped">
-    <thead>
-    <tr>
-        <% for (var i = 0; i < columns.length; i++) { %>
-        <th><%= columns[i] %></th>
-        <% } %>
-    </tr>
-    </thead>
-    <tbody>
     <!-- loop all the cars -->
     <% for (var i = 0; i < cars.length; i++) { var car = cars[i]; %>
-    <tr>
-        <!-- loop the car array inputs, splitting on  -->
-        <% for (var j = 0; j < car.length; j++) { var columns = car[j].split('|'); %>
-        <% for (var x = 0; x < columns.length; x++) { %>
-        <td><%= columns[x] %></td>
-        <% } %>
-        <% } %>
-    </tr>
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <table class="table table-condensed table-striped">
+                <tbody>
+                <!-- loop the car array inputs, splitting on  -->
+                <% for (var j = 0; j < car.length; j++) { %>
+                <tr>
+                    <th>
+                        <%= columns[j] %>
+                    </th>
+                    <td><%= car[j] %></td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <% } %>
-    </tbody>
-</table>
 </body>
 </html>
