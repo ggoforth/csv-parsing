@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet'
+          href='/stylesheets/style.css'/>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <style>
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<table class="table table-condensed table-striped">
+    <thead>
+    <tr>
+        <% for (var i = 0; i < columns.length; i++) { %>
+        <th><%= columns[i] %></th>
+        <% } %>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- loop all the cars -->
+    <% for (var i = 0; i < cars.length; i++) { var car = cars[i]; %>
+    <tr>
+        <!-- loop the car array inputs, splitting on  -->
+        <% for (var j = 0; j < car.length; j++) { var columns = car[j].split('|'); %>
+        <% for (var x = 0; x < columns.length; x++) { %>
+        <td><%= columns[x] %></td>
+        <% } %>
+        <% } %>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+</body>
+</html>
